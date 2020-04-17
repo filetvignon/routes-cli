@@ -246,7 +246,7 @@ The algorithm is usually done as in to calculate the lowest-weight path to ALL n
 While I would really like to take credit for this elegant priority queue implementation, it was actually taken from Google Closure Library.
 I just adapted it to make it simpler by removing all the unnecessary dependencies and methods.
 
-## On the use of external packages/libraries
+### On the use of external packages/libraries
 
 I did my best to keep the use of external packages to a minimum, so there are no dependencies required to run the program.
 The only dependencies are Dev dependencies, used to link and format the code (eslint/prettier) and for the unit testing (jest/supertest)  
@@ -272,7 +272,7 @@ Keep in mind though this would not be too complex and would only require a few t
 I opted to NOT keep the input file in sync throughout the execution of the program, as this would considerably increase the use of Node's execution thread ([read above](#Node-js)).
 The file is updated once the program's execution is interrupted for whatever reason.
 
-### Code commenting
+#### Code commenting
 
 Finally, I must apologize for the lack of comments throughout the code.
 I usually like to keep commenting at a minimum, prioritizing good code structure as being self-explanatory.  
