@@ -8,6 +8,12 @@ const { csvToGraph, graphToCsv } = require('../lib/parsers');
 const filePath = process.argv[2];
 
 async function run() {
+  if (!filePath) {
+    console.error(
+      'A file path is required to load data.\nUsage:\n> routes-cli <input-file-path>\nExample:\n> routes-cli input-examples.txt'
+    );
+    return;
+  }
   const graph = await csvToGraph(filePath);
 
   const cli = new Cli(graph);

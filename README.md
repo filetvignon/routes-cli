@@ -18,6 +18,7 @@ Running this software will do three things:
 - [Cli](#Cli)
 - [REST API](#REST-API)
 - [Uninstall](#Uninstall)
+- [Testing](#Testing)
 - [Project Considerations](#Project-Considerations)
 - [Caveats and Improvements](#Caveats-and-Improvements)
 
@@ -219,6 +220,16 @@ To uninstall routes-cli simply run:
 ```shell
 npm run remove
 ```
+
+## Testing
+
+You can run the tests by running `npm test` on project folder:
+
+```shell
+npm test
+```
+
+This will install all necessary packages and run the test suites.
 
 ---
 

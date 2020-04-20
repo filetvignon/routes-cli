@@ -13,7 +13,7 @@
     "add": "npm install -g",
     "remove": "npm uninstall -g",
     "start": "npm run add",
-    "test": "jest",
+    "test": "npm install && jest",
     "example": "node bin/index.js input-example.txt",
     "format-project": "prettier --write '**/*.js'",
     "dist": "rm -r -f dist/ ; mkdir dist/ && cp -r bin lib test .eslintrc .prettierrc input-example.txt jest.config.js package.json README.md dist/",
