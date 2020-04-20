@@ -231,6 +231,7 @@ My reasoning for choosing Node js for this project revolved mainly around three 
 - Personal familiarity
   - Due to time constraints, I felt it was better to stick to the language I know the most
 - Node performs great for REST APIs and is also great for cross-platform projects
+- Node has amazing performance when it comes to heavy I/O
 - Node has a vibrant community online, so it is relatively easy to find modern and up-to-date documentation, references and solutions that can easily be applied to the problem at hand
 - Fast development
 
@@ -263,18 +264,10 @@ Yes, Node js is great for APIs due to its async nature.
 However, because of Node's single-threaded execution the dijkstra's algorithm, as well as the priority queue used in it, would be much better off implemented in a lower-level language such as Go or C++.  
 Ideally, they would be written in C++ and then used as a Node Add-on, improving performance a great deal.
 
-Or, to circumvent this in a much easier way while still achieving a considerable performance boost,  
-We could make use of Node's Worker Threads module, therefore running the algorithm in a parallel thread. The initial plan was to implement this, but unfortunately time ran short.
-Keep in mind though this would not be too complex and would only require a few tweaks to the code.
+To circumvent this issue in a much easier way while still achieving a considerable performance boost,  
+I made use of Node's Worker Threads module, therefore running the algorithm in a parallel thread.
 
 #### File persistency
 
 I opted to NOT keep the input file in sync throughout the execution of the program, as this would considerably increase the use of Node's execution thread ([read above](#Node-js)).
 The file is updated once the program's execution is interrupted for whatever reason.
-
-#### Code commenting
-
-Finally, I must apologize for the lack of comments throughout the code.
-I usually like to keep commenting at a minimum, prioritizing good code structure as being self-explanatory.  
-However, I do acknowledge a good deal of the code could use better commenting, it was again the unfortunate product of time running out.  
-So please do keep in mind a final version of this code would be much more polished.
