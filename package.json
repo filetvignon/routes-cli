@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=12.11.0"
   },
   "scripts": {
     "add": "npm install -g",
@@ -16,9 +16,9 @@
     "test": "jest",
     "example": "node bin/index.js input-example.txt",
     "format-project": "prettier --write '**/*.js'",
-    "dist": "rm -r dist/ && mkdir dist/ && cp -r bin lib test .eslintrc .prettierrc input-example.txt jest.config.js package.json README.md dist/",
+    "dist": "rm -r -f dist/ ; mkdir dist/ && cp -r bin lib test .eslintrc .prettierrc input-example.txt jest.config.js package.json README.md dist/",
     "zip": "cd dist && zip -r ../routes-cli.zip .",
-    "build": "npm run dist && npm run zip"
+    "build": "npm run dist && npm run zip && rm -r dist/"
   },
   "bin": {
     "routes-cli": "./bin/index.js"

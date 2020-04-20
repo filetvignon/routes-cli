@@ -1,6 +1,6 @@
 const { csvToGraph, graphToCsv } = require('../../lib/parsers');
-const inputFilePath = 'test/input.txt';
-const outputFilePath = 'test/output.txt';
+const inputFilePath = 'test/files/input.txt';
+const outputFilePath = 'test/files/output.txt';
 
 // Test parsing in both directions
 test('csvToGraph and graphToCsv parsers', async () => {

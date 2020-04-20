@@ -73,11 +73,11 @@ describe('Graph', () => {
         weight: 0,
       },
     ],
-  ])('calculateBestRoute(%s, %s)', (src, dest, bestRoute) => {
-    expect(graph.calculateBestRoute(src, dest)).toStrictEqual(bestRoute);
+  ])('calculateBestRoute(%s, %s)', async (src, dest, bestRoute) => {
+    expect(await graph.calculateBestRoute(src, dest)).toStrictEqual(bestRoute);
   });
 
-  test('calculateBestRoute null', () => {
-    expect(graph.calculateBestRoute('CDG', 'NOTEXISTENT')).toBeUndefined();
+  test('calculateBestRoute null', async () => {
+    await expect(graph.calculateBestRoute('CDG', 'NOTEXISTENT')).toBeUndefined();
   });
 });
