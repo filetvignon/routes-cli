@@ -253,10 +253,13 @@ Read my [comments on the caveats](#Node-js) of choosing node for this project.
 This is usually the go-to algorithm for this kind of problem (finding the lowest-weight path between two nodes in a graph).
 The algorithm is usually done as in to calculate the lowest-weight path to ALL nodes from a starting node, so I adapted it to fit the problem better.
 
-### On the Priority Queue implementation
+### On the Priority Queue and Worker Pool implementations
 
 While I would really like to take credit for this elegant priority queue implementation, it was actually taken from Google Closure Library.
 I just adapted it to make it simpler by removing all the unnecessary dependencies and methods.
+
+As for the Worker Pool, unfortunately, as of today, there is no native implementation for Worker Pools and no reliable package as well.
+The implementation seen here has been taken and adapted from the example on Node's [documentation](https://nodejs.org/docs/latest-v12.x/api/async_hooks.html#async-resource-worker-pool) 
 
 ### On the use of external packages/libraries
 
@@ -266,6 +269,7 @@ If I could add external dependencies, I would add:
 
 - REST API framework (Koa is my go-to choice), as it makes the code much easier to write and read while adding fairly little overhead to Node's native http module.
 - Priority Queue implementations (no need to reinvent the wheel, right?)
+- Worker Pools (though currently there is really no good implementation )
 
 ## Caveats and Improvements
 
