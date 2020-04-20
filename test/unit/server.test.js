@@ -2,14 +2,20 @@
 const request = require('supertest');
 
 const Server = require('../../lib/server');
-const csvToGraph = require('../mocks/csvToGraph.mock');
+const { csvToGraph } = require('../../lib/parsers');
+
+jest.mock('../../lib/parsers');
 
 let graph;
 let server;
 
-beforeAll(async () => {
+beforeAll(() => {
   graph = csvToGraph();
   server = new Server(graph);
+});
+
+afterAll(() => {
+  graph.close();
 });
 
 test('Start and close server', async () => {
@@ -46,7 +52,7 @@ describe('Endpoints', () => {
     expect(res.statusCode).toEqual(400);
     expect(res.body).toStrictEqual({
       statusCode: 400,
-      message: 'Route GRU-NONEXISTENT is not available',
+      message: 'NONEXISTENT is not a valid destination',
     });
   });
 

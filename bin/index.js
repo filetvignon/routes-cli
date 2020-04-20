@@ -20,6 +20,7 @@ async function run() {
     console.log(`\n\n** Closing server **`);
     await server.close();
     await graphToCsv(graph, filePath);
+    graph.close();
     cli.close();
   });
 

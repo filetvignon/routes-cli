@@ -9,5 +9,7 @@ test('csvToGraph and graphToCsv parsers', async () => {
   graph.addEdge('newSource', 'newDestination', 9999.99);
   await graphToCsv(graph, outputFilePath);
   const newGraph = await csvToGraph(outputFilePath);
-  expect(newGraph).toStrictEqual(graph);
+  expect(newGraph.nodes).toStrictEqual(graph.nodes);
+  graph.close();
+  newGraph.close();
 });

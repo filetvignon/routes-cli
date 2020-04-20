@@ -1,7 +1,11 @@
 const Graph = require('../../lib/graph');
 
+let graph;
+
+afterAll(() => graph.close());
+
 describe('Graph', () => {
-  const graph = new Graph();
+  graph = new Graph();
 
   test.each([
     ['GRU', 'BRC', 10],
@@ -74,10 +78,12 @@ describe('Graph', () => {
       },
     ],
   ])('calculateBestRoute(%s, %s)', async (src, dest, bestRoute) => {
-    expect(await graph.calculateBestRoute(src, dest)).toStrictEqual(bestRoute);
+    expect(await graph.calculateBestRoute(src, dest)).toEqual(bestRoute);
   });
 
   test('calculateBestRoute null', async () => {
-    await expect(graph.calculateBestRoute('CDG', 'NOTEXISTENT')).toBeUndefined();
+    expect(
+      await graph.calculateBestRoute('CDG', 'NONEXISTENT')
+    ).toBeUndefined();
   });
 });
